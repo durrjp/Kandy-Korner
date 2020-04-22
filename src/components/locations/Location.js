@@ -3,10 +3,11 @@ import "./Location.css"
 
 export default (props) => {
     const isHandiAccess = () => {
+        var checkmark = "\u2714"
         if (props.location.handicap === true) {
-            return "Yes"
+            return checkmark
         } else {
-            return "No"
+            return "\u274c"
         }
     }
     return (
