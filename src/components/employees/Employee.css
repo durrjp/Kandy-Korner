@@ -1,0 +1,16 @@
+.employees {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.employeeList {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.employee {
+    flex-basis: 28%;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid goldenrod;
+}
