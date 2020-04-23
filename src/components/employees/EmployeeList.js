@@ -21,7 +21,6 @@ export default () => {
                     {
                         employees.map(emp =>{
                             const matchingLocation = locations.find(loc => emp.locationId === loc.id)
-                            console.log(matchingLocation)
                             return <Employee key={emp.id} employee={emp} loc={matchingLocation} />
                         })
                     }
