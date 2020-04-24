@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "reactstrap"
+import { Link } from "react-router-dom"
 import { LocationProvider } from "./locations/LocationProvider"
 import { ProductProvider } from "./products/ProductProvider"
 import { ProductTypeProvider } from "./products/ProductTypeProvider"
@@ -15,13 +15,14 @@ export default (props) => {
             {
                 localStorage.getItem("kandy_customer")
                     ?
-                        <Button
-                            onClick={e => {
-                                e.preventDefault()
-                                localStorage.removeItem("kandy_customer")
-                                props.toggle()
-                            }}
-                        >Logout</Button>
+                    <Link className="navbar__link"
+                        to=""
+                        onClick={e => {
+                            e.preventDefault()
+                            localStorage.removeItem("kandy_customer")
+                            props.history.push("/")
+                        }}
+                    >Logout</Link>
                     
                     : ""
             }

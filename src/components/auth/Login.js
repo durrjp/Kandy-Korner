@@ -1,10 +1,9 @@
 import React, { useRef } from "react"
-import { Button, Modal } from "reactstrap";
+import { Link } from "react-router-dom";
 import "./Login.css"
-import Register from "./Register";
 
 
-const Login = ({toggle}) => {
+const Login = (props) => {
     const email = useRef()
     const password = useRef()
    
@@ -27,7 +26,7 @@ const Login = ({toggle}) => {
             .then(exists => {
                 if (exists && exists.password === password.current.value) {
                     localStorage.setItem("kandy_customer", exists.id)
-                    toggle()
+                    props.history.push("/")
                 } else if (exists && exists.password !== password.current.value) {
                     window.alert("Password does not match")
                 } else if (!exists) {
@@ -63,11 +62,8 @@ const Login = ({toggle}) => {
                 </fieldset>
             </form>
             <section className="modal__register">
-                <Button onClick={toggle}>Not a member yet?</Button>
+                <Link to="/register">Not a member yet?</Link>
             </section>
-            <Modal>
-                <Register toggle={toggle} />
-            </Modal>
         </main>
         
     )
