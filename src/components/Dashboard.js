@@ -10,6 +10,8 @@ import LocationList from "./locations/LocationList"
 import EmployeeList from "./employees/EmployeeList"
 import { CustomerCandyProvider } from "./orders/CustomerCandyProvider"
 import OrderList from "./orders/OrderList"
+import CustomerList from "./customers/CustomerList"
+import { CustomerProvider } from "./customers/CustomerProvider"
 
 export default (props) => {
     const [modal, setModal] = useState(false)
@@ -37,19 +39,22 @@ export default (props) => {
                 <ProductProvider>
                     <ProductTypeProvider>
                         <LocationProvider>
+                                <CustomerProvider>
                             <CustomerCandyProvider>
-                                <LocationList />
-                                <Productlist />
-                                <EmployeeList />
-                                <Modal isOpen={modal} toggle={toggle}>
-                                    <ModalHeader toggle={toggle}>
-                                        Order summary
-                                    </ModalHeader>
-                                    <ModalBody>
-                                        <OrderList toggle={toggle} />
-                                    </ModalBody>
-                                </Modal>
+                                    <LocationList />
+                                    <CustomerList />
+                                    <Productlist />
+                                    <EmployeeList />
+                                    <Modal isOpen={modal} toggle={toggle}>
+                                        <ModalHeader toggle={toggle}>
+                                            Order summary
+                                        </ModalHeader>
+                                        <ModalBody>
+                                            <OrderList toggle={toggle} />
+                                        </ModalBody>
+                                    </Modal>
                             </CustomerCandyProvider>
+                                </CustomerProvider>
                         </LocationProvider>
                     </ProductTypeProvider>
                 </ProductProvider>

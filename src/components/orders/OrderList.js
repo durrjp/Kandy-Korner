@@ -13,6 +13,9 @@ export default () => {
         return products.find(product => product.id === cc.productId)
     })
     const orderTableArray = []
+    /* check array for property of order product name -> add new order object if not exist ->
+    add current quantity + 1 and current price + order price if DOES exist
+    */
     currentCustomerProducts.map(ccP => {
         const orderIndex = orderTableArray.findIndex(order => order.name === ccP.name)
         if (orderIndex === -1) {
