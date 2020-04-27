@@ -9,7 +9,6 @@ export default () => {
 
     // [jon,3 (length of array of orders)]
     var orderTableArray = []
-    let sortedOrders = orderTableArray.sort((a, b) => a.number - b.number)
     customers.map(customer => {
         const orderNumber = ccs.filter(cc => cc.customerId === customer.id)
         orderTableArray.push({
@@ -17,7 +16,9 @@ export default () => {
             number: orderNumber.length
         })
     })
-    
+    let sortedOrders = orderTableArray.sort((a, b) => b.number - a.number)
+    debugger
+
     return (
     <>
         <h3>Customers</h3>
